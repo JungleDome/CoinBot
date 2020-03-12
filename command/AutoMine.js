@@ -41,7 +41,7 @@ module.exports = function(helperInstance) {
           "deviceManufacturer": "HUAWEI",
           "deviceBoard": "universal8895",
           "deviceHost": "SWDG2909",
-          "foregroundSeconds": 4,
+          "foregroundSeconds": 0,
           "pendingBonusDropPoints": 0.5,
           "uid": "a0VaPnD9pSgjJ98520JYlKyqvYD3",
           "os": "android",
@@ -80,13 +80,13 @@ module.exports = function(helperInstance) {
                 if (minedInfo.success == false) {
                     var errorMessage = minedInfo.message;
                     var errorCode = minedInfo.errorCode;
-                    console.log("Failed to ");
+                    console.log(`[E] ${errorCode}-Failed to automine. ${errorMessage}`);
                 } else {
                     var minedAmount = minedInfo.minedAmount;
                     var totalOwned = response.getAccountInfo.xyoCollected;
-                    console.log()
+                    console.log(`[I] Mined ${minedAmount} coins. Current coin:${totalOwned}`);
                 }
-                console.log(JSON.stringify(response));
+                //console.log(JSON.stringify(response));
             });
             prevMapHash = currMapHash;
         } else {
